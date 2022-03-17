@@ -6,10 +6,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.metrics.buffering.BufferingApplicationStartup
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
+import org.springframework.boot.web.servlet.server.CookieSameSiteSupplier
+import org.springframework.context.annotation.Bean
 
 @SpringBootApplication
 @EnableConfigurationProperties(AuthorProperties::class)
-class BloggerApplication
+class BloggerApplication {
+    @Bean
+    fun cookieSameSiteSupplier(): CookieSameSiteSupplier {
+        return CookieSameSiteSupplier.ofStrict().whenHasName("mycookie")
+    }
+}
 
 fun main(args: Array<String>) {
 //    runApplication<BloggerApplication>(*args)
