@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class PostController {
+    @GetMapping("/posts")
+    fun findAllPosts() = listOf("Post 1", "Post 2", "Post 3")
+
     @GetMapping("/posts/{name}/{name}")
     fun findPostByAuthor(@PathVariable name: String) {
         println("name: $name")
