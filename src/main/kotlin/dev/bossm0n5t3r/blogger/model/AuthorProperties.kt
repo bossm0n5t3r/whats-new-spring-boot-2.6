@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConstructorBinding
 
 @JvmRecord
 @ConfigurationProperties("blogger.author")
-@ConstructorBinding
+//@ConstructorBinding
 data class AuthorProperties(
     val firstName: String,
     val lastName: String,
